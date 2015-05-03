@@ -53,12 +53,12 @@ $ cd /vagrant
 $ ls -la
 ```
 
-### ./bim
+### ./admin
 
 There is an admin script that will manage the stack for development:
 
 ```bash
-$ ./bim help
+$ ./admin help
 ```
 
 ### configure
@@ -66,7 +66,7 @@ $ ./bim help
 This gets the development environment setup - you need to do this the very first time (and if you `vagrant destroy`)
 
 ```bash
-$ ./bim configure
+$ ./admin configure
 ```
 
 ### vars
@@ -80,19 +80,19 @@ API_VERSION=v1
 ### start services
 
 ```bash
-$ ./bim up
+$ ./admin up
 ```
 
 ### stop services
 
 ```bash
-$ ./bim down
+$ ./admin down
 ```
 
 ### show service status
 
 ```bash
-$ ./bim status
+$ ./admin status
 ```
 
 ### view app in browser
@@ -104,7 +104,7 @@ A port is mounted onto the host so you can enter `http://127.0.0.1:8080` into a 
 The client CSS and JS is bundled - use the admin bundle command to rebuild it
 
 ```bash
-$ ./bim build
+$ ./admin build
 ```
 
 ## tests
@@ -134,7 +134,7 @@ cloud provider vars here
 You can `./bim configure` to enter these values.
 
 ```bash
-$ ./bim test acceptance
+$ ./admin test acceptance
 ```
 
 will run the acceptance tests
@@ -142,17 +142,17 @@ will run the acceptance tests
 ### integration tests
 
 ```bash
-$ ./bim test integration
+$ ./admin test integration
 ```
 
 ### unit tests
 
 ```bash
-$ ./bim test unit
+$ ./admin test unit
 ```
 
 ### all tests
 
 ```bash
-$ ./bim test all
+$ ./admin test all
 ```
