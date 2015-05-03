@@ -107,11 +107,52 @@ The client CSS and JS is bundled - use the admin bundle command to rebuild it
 $ ./bim build
 ```
 
-### run tests
+## tests
 
-To run the developer acceptance tests
+There are various types of test:
+
+ * acceptance tests - test the whole system against cloud instances
+ * integration tests - test parts of the system working together
+ * unit tests - test isolated unit of the system
+
+To run the acceptance tests you must have vagrant and virtualbox installed and SSH into the VM:
 
 ```bash
-$ ./bim test
+$ vagrant up
+$ vagrant ssh
+vagrant$ cd /vagrant
 ```
 
+### acceptance tests
+
+To run the acceptance tests - the following variables must be configured:
+
+```bash
+cloud provider vars here
+```
+
+You can `./bim configure` to enter these values.
+
+```bash
+$ ./bim test acceptance
+```
+
+will run the acceptance tests
+
+### integration tests
+
+```bash
+$ ./bim test integration
+```
+
+### unit tests
+
+```bash
+$ ./bim test unit
+```
+
+### all tests
+
+```bash
+$ ./bim test all
+```
