@@ -3,7 +3,25 @@
 export DOCKER_HOST=${DOCKER_HOST:=unix:///var/run/docker.sock}
 
 cmd-test() {
-	echo test
+	case "$1" in
+	all)
+		cmd-test unit
+		cmd-test integration
+		cmd-test acceptance
+;;
+unit)
+		echo "unit tests"
+;;
+integration)
+		echo "integration tests"
+;;
+acceptance)
+		bats --tap test/vagrant
+;;
+	*)
+		usage test
+;;
+	esac
 }
 
 cmd-build() {
@@ -27,22 +45,30 @@ cmd-configure() {
 }
 
 usage() {
+	case "$1" in
+	test)
 cat <<EOF
 Usage:
-bim test
+bim test <all|acceptance|integration|unit>
+EOF
+;;
+	*)
+cat <<EOF
+Usage:
+bim test <all|acceptance|integration|unit>
 bim build
 bim status
 bim down
 bim up
-bim help
+bim help [command]
 EOF
-	exit 1
+;;
+	esac
 }
-
 
 main() {
 	case "$1" in
-	test)					      shift; cmd-test; $@;;
+	test)					      shift; cmd-test $@;;
 	build)              shift; cmd-build $@;;
 	status)             shift; cmd-status $@;;
 	down)               shift; cmd-down $@;;
