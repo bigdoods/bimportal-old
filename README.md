@@ -1,6 +1,6 @@
-# BIM platform
+# BIM portal
 
-Core infrastructure management for [bimscript portal](https://bimscript.com)
+Infrastructure management for [bimscript](https://www.bimscript.com)
 
 ## developer
 
@@ -53,106 +53,6 @@ $ cd /vagrant
 $ ls -la
 ```
 
-### ./admin
+## viking
 
-There is an admin script that will manage the stack for development:
-
-```bash
-$ ./admin help
-```
-
-### configure
-
-This gets the development environment setup - you need to do this the very first time (and if you `vagrant destroy`)
-
-```bash
-$ ./admin configure
-```
-
-### vars
-
-You can set the following variables using the `/etc/bim/profile` file:
-
-```bash
-API_VERSION=v1
-```
-
-### start services
-
-```bash
-$ ./admin up
-```
-
-### stop services
-
-```bash
-$ ./admin down
-```
-
-### show service status
-
-```bash
-$ ./admin status
-```
-
-### view app in browser
-
-A port is mounted onto the host so you can enter `http://127.0.0.1:8080` into a browser once you have started the services.
-
-### build client assets
-
-The client CSS and JS is bundled - use the admin bundle command to rebuild it
-
-```bash
-$ ./admin build
-```
-
-## tests
-
-There are various types of test:
-
- * acceptance tests - test the whole system against cloud instances
- * integration tests - test parts of the system working together
- * unit tests - test isolated unit of the system
-
-To run the acceptance tests you must have vagrant and virtualbox installed and SSH into the VM:
-
-```bash
-$ vagrant up
-$ vagrant ssh
-vagrant$ cd /vagrant
-```
-
-### acceptance tests
-
-To run the acceptance tests - the following variables must be configured:
-
-```bash
-cloud provider vars here
-```
-
-You can `./bim configure` to enter these values.
-
-```bash
-$ ./admin test acceptance
-```
-
-will run the acceptance tests
-
-### integration tests
-
-```bash
-$ ./admin test integration
-```
-
-### unit tests
-
-```bash
-$ ./admin test unit
-```
-
-### all tests
-
-```bash
-$ ./admin test all
-```
+Presently - the rest of the setup assumes a [viking](https://www.github.com/binocarlos/viking) installation in the /vagrant (bim) directory.
