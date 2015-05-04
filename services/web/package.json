@@ -1,0 +1,11 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "The web service serves the static website assets",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "author": "Kai Davenport",
+  "license": "ISC"
+}
