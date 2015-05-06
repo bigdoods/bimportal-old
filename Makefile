@@ -27,12 +27,12 @@ docker:
 
 # install docker-compose
 compose:
-	curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	curl -sS -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
 
 # install JSON parser
 jq:
-	curl -L http://stedolan.github.io/jq/download/linux64/jq > /usr/local/bin/jq
+	curl -sS -L http://stedolan.github.io/jq/download/linux64/jq > /usr/local/bin/jq
 	chmod +x /usr/local/bin/jq
 
 # install the bats bash testing framework
