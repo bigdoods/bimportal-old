@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# get the directory the script is running from and follow symlinks
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+BIM_INSTALLATION="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+# a file that can override and set variables
+export BIM_CONFIG=${BIM_CONFIG:=/etc/bim/config}
+
+if [[ -f $BIM_CONFIG ]]; then
+	source $BIM_CONFIG
+fi
+
+export DOCKER_HOST=${DOCKER_HOST:=unix:///var/run/docker.sock}
+
+run-docker-compose() {
+	(cd $BIM_INSTALLATION; docker-compose $@)
+}
+cmd-test() {
+	case "$1" in
+	all)
+		cmd-test unit
+		cmd-test integration
+		cmd-test acceptance
+;;
+unit)
+	echo "unit tests"
+;;
+integration)
+	echo "integration tests"
+;;
+acceptance)
+	# first run the core bimctl tests
+	bats --tap $BIM_INSTALLATION/test/vagrant
+	# now see if there is a test folder
+	if [[ -d $PWD/test ]]; then
+		bats --tap $PWD/test
+	fi
+;;
+	*)
+		usage test
+;;
+	esac
+}
+
+cmd-build() {
+	run-docker-compose -p bim build
+}
+
+cmd-status() {
+	docker ps
+}
+
+cmd-down() {
+	run-docker-compose down
+}
+
+cmd-up() {
+	run-docker-compose up
+}
+
+cmd-configure() {
+	echo configure
+}
+
+usage() {
+	case "$1" in
+	test)
+cat <<EOF
+Usage:
+bimctl test <all|acceptance|integration|unit>
+EOF
+;;
+	*)
+cat <<EOF
+Usage:
+bimctl test <all|acceptance|integration|unit>
+bimctl build
+bimctl status
+bimctl down
+bimctl up
+bimctl help [command]
+EOF
+;;
+	esac
+}
+
+main() {
+	case "$1" in
+	test)					      shift; cmd-test $@;;
+	build)              shift; cmd-build $@;;
+	status)             shift; cmd-status $@;;
+	down)               shift; cmd-down $@;;
+	configure)          shift; cmd-configure $@;;
+	up)                 shift; cmd-up $@;;
+	help)               shift; usage $@;;
+	*)                  usage $@;;
+	esac
+}
+
+main "$@"

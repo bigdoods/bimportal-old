@@ -53,6 +53,100 @@ $ cd /vagrant
 $ ls -la
 ```
 
-## viking
+## bimctl
 
-Presently - the rest of the setup assumes a [viking](https://www.github.com/binocarlos/viking) installation in the /vagrant (bim) directory.
+
+There is an admin script that will manage the stack for development:
+
+```bash
+$ bimctl help
+```
+
+### vars
+
+You can manually set variables in the `/etc/bim/config` file
+
+```bash
+$ cat /etc/bim/config
+API_VERSION=v1
+```
+
+### start services
+
+```bash
+$ bimctl up
+```
+
+### stop services
+
+```bash
+$ bimctl down
+```
+
+### show service status
+
+```bash
+$ bimctl status
+```
+
+### view app in browser
+
+A port is mounted onto the host so you can enter `http://127.0.0.1:8080` into a browser once you have done `bimctl up`.
+
+### build client assets
+
+The client CSS and JS is bundled - use the admin bundle command to rebuild it
+
+```bash
+$ bimctl build
+```
+
+## config
+
+You can configure the variables for bim itself by setting values in the `/etc/bim/config` file.
+
+## tests
+
+There are various types of test:
+
+ * acceptance tests - test the whole system against cloud instances
+ * integration tests - test parts of the system working together
+ * unit tests - test isolated unit of the system
+
+To run the acceptance tests you must have vagrant and virtualbox installed and SSH into the VM:
+
+```bash
+$ vagrant up
+$ vagrant ssh
+vagrant$ cd /vagrant
+```
+
+### acceptance tests
+
+To run the acceptance tests - cloud provider variables must be set (TBC)
+
+You can `bimctl configure` to enter these values.
+
+```bash
+$ bimctl test acceptance
+```
+
+will run the acceptance tests
+
+### integration tests
+
+```bash
+$ bimctl test integration
+```
+
+### unit tests
+
+```bash
+$ bimctl test unit
+```
+
+### all tests
+
+```bash
+$ bimctl test all
+```

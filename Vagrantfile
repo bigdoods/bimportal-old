@@ -10,9 +10,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 443, host: 4443
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.hostname = "node1"
-  if ENV['VIKING_HOME']
-    config.vm.synced_folder ENV['VIKING_HOME'], "/opt/viking"
-  end
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
     v.cpus = 1

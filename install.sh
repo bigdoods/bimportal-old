@@ -1,6 +1,4 @@
 #!/bin/bash
 
-apt-get update
-apt-get install -y git curl
-# install viking
-curl -sSL  https://raw.githubusercontent.com/binocarlos/viking/master/install.sh | sudo sh
+cd /vagrant && make all
+ln -s /vagrant/bimctl /usr/local/bin/bimctl
