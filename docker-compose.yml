@@ -3,8 +3,8 @@ web:
   links:
    - redis
   ports:
-   - "8000:8000"
+   - "80:80"
 redis:
   image: redis
   volumes:
-    - /var/viking/redis:/data
+    - /var/bim/redis:/data
