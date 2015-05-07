@@ -18,9 +18,25 @@ fi
 
 export DOCKER_HOST=${DOCKER_HOST:=unix:///var/run/docker.sock}
 
-run-docker-compose() {
-	(cd $BIM_INSTALLATION; docker-compose $@)
+composecommands=("kill" "logs" "port" "ps" "pull" "rm" "run" "start" "stop" "up" "build")
+
+array_contains () {
+    local array="$1[@]"
+    local seeking=$2
+    local in=1
+    for element in "${!array}"; do
+        if [[ $element == $seeking ]]; then
+            in=0
+            break
+        fi
+    done
+    return $in
 }
+
+run-docker-compose() {
+	(cd $BIM_INSTALLATION; COMPOSE_PROJECT_NAME=bim docker-compose $@)
+}
+
 cmd-test() {
 	case "$1" in
 	all)
@@ -48,20 +64,8 @@ acceptance)
 	esac
 }
 
-cmd-build() {
-	run-docker-compose -p bim build
-}
-
 cmd-status() {
-	docker ps
-}
-
-cmd-down() {
-	run-docker-compose down
-}
-
-cmd-up() {
-	run-docker-compose up
+	docker status
 }
 
 cmd-configure() {
@@ -79,27 +83,37 @@ EOF
 	*)
 cat <<EOF
 Usage:
-bimctl test <all|acceptance|integration|unit>
-bimctl build
-bimctl status
-bimctl down
-bimctl up
 bimctl help [command]
+bimctl test <all|acceptance|integration|unit>
+bimctl status
+bimctl configure
 EOF
+
+for i in "${composecommands[@]}"
+do
+   echo "bimctl $i"
+done
 ;;
 	esac
+}
+
+controller() {
+	local composecommand=$(array_contains composecommands $1)
+	shift
+	if [[ $composecommand ]]; then
+		echo CMPOSE
+	else
+		usage
+	fi
 }
 
 main() {
 	case "$1" in
 	test)					      shift; cmd-test $@;;
-	build)              shift; cmd-build $@;;
 	status)             shift; cmd-status $@;;
-	down)               shift; cmd-down $@;;
 	configure)          shift; cmd-configure $@;;
-	up)                 shift; cmd-up $@;;
 	help)               shift; usage $@;;
-	*)                  usage $@;;
+	*)                  controller $@;;
 	esac
 }
 
