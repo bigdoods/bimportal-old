@@ -23,10 +23,10 @@ composecommands=("kill" "logs" "port" "ps" "pull" "rm" "run" "start" "stop" "up"
 array_contains () {
     local array="$1[@]"
     local seeking=$2
-    local in=1
+    local in=0
     for element in "${!array}"; do
         if [[ $element == $seeking ]]; then
-            in=0
+            in=1
             break
         fi
     done
@@ -98,12 +98,11 @@ done
 }
 
 controller() {
-	local composecommand=$(array_contains composecommands $1)
-	shift
+	local composecommand=array_contains composecommands $1
 	if [[ $composecommand ]]; then
-		echo CMPOSE
+		(cd $BIM_INSTALLATION; COMPOSE_PROJECT_NAME=bim docker-compose $@)
 	else
-		usage
+		usage $@
 	fi
 }
 
