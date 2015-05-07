@@ -80,7 +80,7 @@ $ bimctl up
 ### stop services
 
 ```bash
-$ bimctl down
+$ bimctl stop
 ```
 
 ### show service status
@@ -150,3 +150,78 @@ $ bimctl test unit
 ```bash
 $ bimctl test all
 ```
+
+## design
+
+A rough overview of the architecture of the system.
+
+### services
+
+There are a range of services each communicating over the network - generally in HTTP.
+
+ * router
+ * authentication
+ * authorization
+ * user store
+ * web
+ * event bus
+ * logging
+ * logstash/elasticsearch
+ * redis
+ * postgres
+
+#### router
+
+The edge service that user requests will arrive at.  The router knows which other backend services will handle the request.
+
+ * read HTTP headers of request
+ * match route based on the master routing table loaded from redis - refreshed every x seconds
+ * format of routing table is route=service name
+
+#### authentication
+
+Handles user logging in
+
+ * register - POST user details -> create account
+ * login - POST username / password -> create cookie
+ * logout - delete cookie
+
+#### authorization
+
+Handles answering whether a user can do a certain action - based on some kind of ACL
+
+#### user store
+
+A pure data store used to save the user accounts / credentials
+
+Basically a REST api -> database (probably postgres) bridge
+
+#### web
+
+Static assets server - for built client JS/CSS
+
+#### event bus
+
+Distributed application events - use nsq
+
+Other services broadcast events onto the bus
+
+#### logging
+
+Listen to the event bus for events and send logs to logstash
+
+#### logstash/elasticsearch
+
+For saving logs
+
+#### redis
+
+For user sessions
+
+#### postgres
+
+For user account data
+
+
+
+
