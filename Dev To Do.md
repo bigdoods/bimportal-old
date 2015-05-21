@@ -4,7 +4,7 @@ Please find the list of changes and developments to do for beta release:
 
 ####Back-End
 
-1.  Install PoC BIMportal onto new infrastructure (forked https://github.com/BIMscript/portal)
+1.  Install portal PoC onto new infrastructure (forked https://github.com/BIMscript/portal_PoC)
 2.  Swap out Catenda's BIMsync Model Viewer and IFC data handling to BIMserver/BIMsurfer/BIMvie.ws (all forked)
 3.  Create automatic User registration without need for BIMscript to verify or add users to projects
 4.  Users can create projects
