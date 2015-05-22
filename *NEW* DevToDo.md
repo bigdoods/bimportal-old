@@ -10,12 +10,14 @@ BIMscript admins new role will be to manage the system, and not the content of t
 Users will be able to create projects and add users to join.
 
 1.  Install portal PoC onto new infrastructure (forked https://github.com/BIMscript/portal_PoC)
-2.  Swap out Catenda's BIMsync Model Viewer and IFC data handling to BIMserver/BIMsurfer/BIMvie.ws (all forked)
+2.  Swap out Catenda's BIMsync Model Viewer and IFC data handling to BIMserver (forked https://github.com/BIMscript/BIMserver)
+3.  Swap out the model viewer to the newest version of BIMvie.ws (forked https://github.com/BIMscript/bimvie.ws) (BIMsurfer is also there for reference)
 3.  Create automatic User registration without need for BIMscript to verify or add users to projects
 4.  Users can create projects
 5.  Users who create projects become admin of projects and can add users to projects
 6.  Remove "File/Item Request" app
 7.  Integrate Timeline JS into our timeline (forked https://github.com/BIMscript/TimelineJS)
+8.  Clean up all code leftover from the Indian lads
 
 ####User Front-End
 
