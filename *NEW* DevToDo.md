@@ -4,11 +4,16 @@ Please find the list of changes and developments to do for beta release:
 
 ####Back-End
 
+The most significant change will be to change a lot of the current functionality which is exclusively admin and give that functionality to users. We need to develop ourselves (BIMscript admins) out of the system so that the BIMportal can be used standalone by users. 
+
+BIMscript admins new role will be to manage the system, and not the content of the system.
+Users will be able to create projects and add users to join.
+
 1.  Install portal PoC onto new infrastructure (forked https://github.com/BIMscript/portal_PoC)
 2.  Swap out Catenda's BIMsync Model Viewer and IFC data handling to BIMserver/BIMsurfer/BIMvie.ws (all forked)
 3.  Create automatic User registration without need for BIMscript to verify or add users to projects
 4.  Users can create projects
-5.  Users who create projects become admin of projects and can add users to projects (3 types of users now: BIMscript (Admin), Project Admin (User), Project Member (user))
+5.  Users who create projects become admin of projects and can add users to projects
 6.  Remove "File/Item Request" app
 7.  Integrate Timeline JS into our timeline (forked https://github.com/BIMscript/TimelineJS)
 
