@@ -2,7 +2,7 @@
 
 The period for development is estimated at 1 to 2 months. By the conclusion of this period we need to:
 
-* Install all existing code into new infrastructure framework
+* Install all existing code into new infrastructure framework (forked https://github.com/BIMscript/portal_PoC)
 * Ensure all additional code is written in SOA
 * Remove users dependency on BIMscript as webmasters managing their data
 * Give extra functionality to the user to manage their data
