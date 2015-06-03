@@ -1,4 +1,4 @@
-# BIM portal
+# BIMportal
 
 Infrastructure management for [bimscript](https://www.bimscript.com)
 
@@ -40,13 +40,15 @@ Once the Vagrant box has started - we need a command line for it so we SSH into 
 $ vagrant ssh
 ```
 
-NOTE: If using Windows, ignore this command and you will need to install [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and use Puttygen (download from the same page) to convert the vagrant public key.
+NOTE: If using Windows, ignore this command. You will need to install [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and use Puttygen (download from the same page) to convert the vagrant public key.
 
-A [guide](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Connect-to-Your-Vagrant-Virtual-Machine-with-PuTTY) for how to do this is [here](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Connect-to-Your-Vagrant-Virtual-Machine-with-PuTTY)
+A guide for how to do this is [here](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Connect-to-Your-Vagrant-Virtual-Machine-with-PuTTY)
 
 ### cd to /vagrant
 
-Now inside vagrants cmd window - Once you have a command line to the box - change directory to where this repo is mounted as a shared folder - `/vagrant`
+Now inside vagrants cmd window
+
+Once you have a command line to the box - change directory to where this repo is mounted as a shared folder - `/vagrant`
 
 ```bash
 $ cd /vagrant
