@@ -17,7 +17,7 @@ Then change directory to where you keep projects e.g. `cd projects`.
 Then we need to clone the source code:
 
 ```
-$ git clone https://github.com/binocarlos/bim
+$ git clone https://github.com/BIMscript/BIMportal
 $ cd bim
 ```
 
