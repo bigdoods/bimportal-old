@@ -18,7 +18,7 @@ Then we need to clone the source code:
 
 ```
 $ git clone https://github.com/BIMscript/BIMportal
-$ cd bim
+$ cd BIMportal
 ```
 
 ### start vm
@@ -26,7 +26,7 @@ $ cd bim
 We use vagrant to start and stop virtualbox vms - to start the VM: 
 
 ```bash
-$ cd bim
+$ cd BIMportal
 $ vagrant up
 ```
 
