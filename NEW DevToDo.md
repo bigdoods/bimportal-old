@@ -45,3 +45,4 @@ Alongside these goals, we need to get a full and comprehensive understanding of 
 1. Timeline is displaying all projects inside a project
 2. Sent chats are sometimes appearing twice
 3. GUI responsivity is not working great on webmaster end
+4. Project data is not unique/separate to each project
