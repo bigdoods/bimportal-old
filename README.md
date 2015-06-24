@@ -2,6 +2,11 @@
 
 Infrastructure management for [bimscript](https://www.bimscript.com)
 
+## pre-dev shite
+
+1 - Create a new folder to hold all your projects (websites) ##make sure folders are not held on dropbox as they could get confused with git.
+2 - For each new project, a git clone will create a sub-directory
+
 ## developer
 
 First you need to install:
