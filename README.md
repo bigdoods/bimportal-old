@@ -37,7 +37,6 @@ $ vagrant up
 
 This will start a vagrant box and install dependencies.
 
-
 ### halt vagrant
 
 Use this command to shut down the running machine Vagrant is managing.
@@ -62,7 +61,7 @@ A guide for how to do this is [here](https://github.com/Varying-Vagrant-Vagrants
 
 ### cd to /vagrant
 
-Now inside vagrants cmd window
+Now inside vagrants cmd window (putty)
 
 Once you have a command line to the box - change directory to where this repo is mounted as a shared folder - `/vagrant`
 
