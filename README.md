@@ -42,7 +42,7 @@ This will start a vagrant box and install dependencies.
 
 Use this command to shut down the running machine Vagrant is managing.
 
-Vagrant will first attempt to gracefully shut down the machine by running the guest OS shutdown mechanism. If this fails, or if the ```bash --force ``` flag is specified, Vagrant will effectively just shut off power to the machine.
+Vagrant will first attempt to gracefully shut down the machine by running the guest OS shutdown mechanism. If this fails, or if the ``` --force ``` flag is specified, Vagrant will effectively just shut off power to the machine.
 
 ```bash
 $ vagrant halt
