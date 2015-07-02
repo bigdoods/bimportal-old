@@ -1,19 +1,19 @@
 ##BIMportal BETA release - Development
 
-The period for development is estimated at 1 to 2 months. By the conclusion of this period we need to:
+The period for development is estimated at 3 months. By the conclusion of this period we need to:
 
 * Install all existing code into new infrastructure framework (forked https://github.com/BIMscript/portal_PoC)
-* Ensure all additional code is written in SOA
-* Remove users dependency on BIMscript as webmasters managing their data
+* Ensure all additional code is written in SOA (node ecosystem)
+* Remove users dependency on BIMscript as webmasters managing their data (ie move webmaster end UI functions to the user end)
 * Give extra functionality to the user to manage their data
 * Create ability for users to create projects, become project admins and add users to the project
 * There will be 3 types of user: webmaster (BIMscript), admin (project admin), user
 * Revise BIMscript’s role to system administrators only
 * Swap out BIMsync model viewer and data (IFC) handling APIs for BIMserver, BIMsurfer, BIMvie.ws
 * Fix bugs
-* Clean up all code that is possible (create black boxes?)
+* Clean up all code that is possible (create black boxes)
 * Clear all databases of development data
-* Create a GUI for general release
+* Create a revised GUI for general release
 
 Alongside these goals, we need to get a full and comprehensive understanding of how all the code works and interacts. Please find a more detailed list of development below:
 
