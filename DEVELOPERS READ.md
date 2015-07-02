@@ -19,11 +19,11 @@ Alongside these goals, we need to get a full and comprehensive understanding of 
 
 Every development point and bug will be listed as an issue to resolve. Should people add issues please use the following tag identifiers and then choose the appropriate label for the issue inside github:
 
-BUG - 'this is a bug'
-BACK-END - 'this is a development for the back end'
-FRONT-END - 'this is a development for the front end'
-GUI - 'this is a graphical development'
-UX - 'this is a useability development'
+* BUG - 'this is a bug'
+* BACK-END - 'this is a development for the back end'
+* FRONT-END - 'this is a development for the front end'
+* GUI - 'this is a graphical development'
+* UX - 'this is a useability development'
 
 ## Working Practices
 
