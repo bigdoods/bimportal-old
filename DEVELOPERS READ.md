@@ -13,7 +13,7 @@ The period for development is estimated at 3 months. By the conclusion of this p
 * Fix bugs
 * Clean up all code that is possible (create black boxes)
 * Clear all databases of development data
-* Create a revised GUI for general release
+* Create a revised GUI for BETA release
 
 Alongside these goals, we need to get a full and comprehensive understanding of how all the code works and interacts. 
 
@@ -25,14 +25,20 @@ FRONT-END - 'this is a development for the front end'
 GUI - 'this is a graphical development'
 UX - 'this is a useability development'
 
-#### Working Practices
+## Working Practices
 
-1 - Test Driven Development.
+#### 1 - Test Driven Development.
 
 Always design your tests for the new code and then develop. Make sure you think of extreme cases for inputs to see what happens.
 
-2 - Code commenting
+#### 2 - Code commenting
 
-Make sure that every block or black box of code is commented (that is neccessary
+Make sure that code is commented (use judgement to decide when is neccessary, good judgement... not bad judgement)
 
-3 - Clean code on the fly
+#### 3 - Clean code on the fly
+
+As you write or go through the code, clean up any mistakes (even in the comments!) and try to optimise wherever possible.
+
+#### 4 - Write new code in node.JS or other JS
+
+We want to migrate the PHP code over to nodeJS and other JS related, SOA code. Any new code should help this migration! Obviously, we want the right code for the right places, so make good calls on what should be re-written and what can be black boxed as a function.
